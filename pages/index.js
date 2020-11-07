@@ -4,10 +4,24 @@ import Router from 'next/router'
 
 class IndexPage extends Component {
 
+  // this lifecycle method only executes on server
+  static async getInitialProps (context) {
+    // typically you would have await in here to call server (e.g. via axios)
+
+    // simulated server call
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ appName: "Super App" })
+      }, 1000)
+    })
+
+    return promise
+  }
+
   render () {
     return (
       <div>
-        <h1>The Main Page</h1>
+        <h1>The Main Page of '{this.props.appName}'</h1>
         <p>Go to <Link href="/auth"><a>Auth</a></Link></p>
         <button onClick={() => Router.push('/auth')}>Go to Auth</button>
       </div>
