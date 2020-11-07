@@ -22,3 +22,5 @@ Launch (Development mode)
 Build (Production)
 
   $ npm run build
+
+Ship entire project to a host which can host Node.js
