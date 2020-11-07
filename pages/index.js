@@ -4,7 +4,14 @@ import Router from 'next/router'
 
 class IndexPage extends Component {
 
-  // this lifecycle method only executes on server
+  /**
+   * lifecycle method that executes on server
+   * getInitialProps allows you to setup props before page is loaded
+   *
+   * setup properties
+   *
+   * @param {*} context
+   */
   static async getInitialProps (context) {
     // typically you would have await in here to call server (e.g. via axios)
 
